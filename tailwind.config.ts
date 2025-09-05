@@ -20,16 +20,23 @@ export default {
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
+				'border-glow': 'hsl(var(--border-glow))',
 				input: 'hsl(var(--input))',
+				'input-glow': 'hsl(var(--input-glow))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: {
+					DEFAULT: 'hsl(var(--background))',
+					secondary: 'hsl(var(--background-secondary))'
+				},
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
+					glow: 'hsl(var(--primary-glow))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
+					glow: 'hsl(var(--secondary-glow))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				destructive: {
@@ -42,7 +49,16 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
+					glow: 'hsl(var(--accent-glow))',
 					foreground: 'hsl(var(--accent-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -50,6 +66,7 @@ export default {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
+					secondary: 'hsl(var(--card-secondary))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				sidebar: {
@@ -64,9 +81,25 @@ export default {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
+				lg: 'var(--radius-lg)',
+				DEFAULT: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				xl: 'var(--radius-xl)'
+			},
+			backgroundImage: {
+				'gradient-cosmic': 'var(--gradient-cosmic)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)'
+			},
+			boxShadow: {
+				'cosmic': 'var(--shadow-cosmic)',
+				'glow': 'var(--shadow-glow)',
+				'card': 'var(--shadow-card)'
+			},
+			transitionProperty: {
+				'cosmic': 'var(--transition-cosmic)',
+				'glow': 'var(--transition-glow)'
 			},
 			keyframes: {
 				'accordion-down': {

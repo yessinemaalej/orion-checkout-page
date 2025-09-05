@@ -2,41 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Orion Checkout Design System - Space/Tech Inspired
+All colors MUST be HSL. Cosmic theme with deep space blues and electric accents.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cosmic Background System */
+    --background: 220 30% 4%;
+    --background-secondary: 220 25% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card System */
+    --card: 220 25% 8%;
+    --card-secondary: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Navigation & Overlays */
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand Colors */
+    --primary: 245 75% 60%;
+    --primary-glow: 245 85% 70%;
+    --primary-foreground: 220 30% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 280 60% 45%;
+    --secondary-glow: 280 70% 55%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Interactive States */
+    --muted: 220 20% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 190 95% 55%;
+    --accent-glow: 190 100% 65%;
+    --accent-foreground: 220 30% 4%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 30% 4%;
+
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders & Inputs */
+    --border: 220 20% 18%;
+    --border-glow: 245 75% 60%;
+    --input: 220 20% 15%;
+    --input-glow: 245 60% 50%;
+    --ring: 245 75% 60%;
 
-    --radius: 0.5rem;
+    /* Design System Extensions */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(245 75% 60%) 0%, hsl(280 60% 45%) 50%, hsl(190 95% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 4%) 0%, hsl(245 40% 15%) 50%, hsl(280 30% 10%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 20% 10%) 100%);
+    
+    /* Shadows */
+    --shadow-cosmic: 0 0 40px hsl(245 75% 60% / 0.3), 0 20px 40px hsl(220 30% 4% / 0.8);
+    --shadow-glow: 0 0 20px hsl(245 75% 60% / 0.4);
+    --shadow-card: 0 8px 32px hsl(220 30% 4% / 0.6);
+    
+    /* Transitions */
+    --transition-cosmic: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.4s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
