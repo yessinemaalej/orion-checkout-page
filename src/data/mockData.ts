@@ -6,7 +6,7 @@ export const roadmapItems: RoadmapItem[] = [
     title: 'Orion Alpha Release',
     description: 'First prototype with basic validator functionality',
     status: 'completed',
-    date: 'March 2024',
+    date: 'Juin 2024',
     quarter: 'Q1 2024'
   },
   {
@@ -14,79 +14,90 @@ export const roadmapItems: RoadmapItem[] = [
     title: 'Starlink Integration',
     description: 'Full Starlink satellite connectivity for remote locations',
     status: 'completed',
-    date: 'June 2024',
+    date: 'July 2024',
     quarter: 'Q2 2024'
   },
   {
     id: '3',
     title: 'Renewable Energy Module',
     description: 'Solar and wind power integration for sustainable operation',
-    status: 'in-progress',
-    date: 'September 2024',
+    status: 'completed',
+    date: 'July 2024',
     quarter: 'Q3 2024'
   },
   {
     id: '4',
-    title: 'Multi-Chain Support',
-    description: 'Support for Ethereum, Polygon, and other major networks',
+    title: 'First batch of Orions',
+    description: 'Ship first 5 units to early adopters',
     status: 'in-progress',
-    date: 'December 2024',
-    quarter: 'Q4 2024'
-  },
-  {
-    id: '5',
-    title: 'Global Network Launch',
-    description: 'Worldwide deployment of Orion validator network',
-    status: 'upcoming',
-    date: 'March 2025',
+    date: 'Juin 2025',
     quarter: 'Q1 2025'
   },
   {
     id: '6',
-    title: 'AI-Powered Optimization',
-    description: 'Machine learning for automatic performance optimization',
+    title: 'Batch 2 Release',
+    description: 'Scale production and ship 15 more units',
     status: 'upcoming',
-    date: 'June 2025',
-    quarter: 'Q2 2025'
-  }
+    date: 'October 2025',
+    quarter: 'Q3 2025'
+  },
+  {
+    id: '6',
+    title: 'Global Network Launch',
+    description: 'Worldwide deployment of Orion validator network',
+    status: 'upcoming',
+    date: 'Dec 2025',
+    quarter: 'Q4 2025'
+  },
+
 ];
 
 export const teamMembers: TeamMember[] = [
   {
     id: '1',
-    name: 'Dr. Elena Vasquez',
-    role: 'CEO & Founder',
-    bio: 'Former SpaceX engineer with 15 years in satellite technology and blockchain infrastructure.',
-    image: '/src/assets/team-elena.jpg',
+    name: 'Azeem Saifi',
+    role: 'Senior Development Manager',
+    bio: '',
+    image: '/src/assets/team-azeem.jpg',
     linkedin: '#',
     twitter: '#'
   },
   {
     id: '2',
-    name: 'Marcus Chen',
-    role: 'CTO',
-    bio: 'Ethereum core developer and expert in distributed systems and consensus mechanisms.',
-    image: '/src/assets/team-marcus.jpg',
+    name: 'Stefan',
+    role: 'Head of Orion / Business Development',
+    bio: '',
+    image: '/src/assets/team-stefan.jpg',
     linkedin: '#',
     twitter: '#'
   },
   {
     id: '3',
-    name: 'Dr. Amira Hassan',
-    role: 'Head of Engineering',
-    bio: 'PhD in Renewable Energy Systems, leading our sustainable infrastructure initiatives.',
-    image: '/src/assets/team-amira.jpg',
-    linkedin: '#'
+    name: 'Oli',
+    role: 'COO / Business Development',
+    bio: '',
+    image: '/src/assets/team-oli.webp',
+    linkedin: '#',
+    twitter: '#'
   },
   {
     id: '4',
-    name: 'Jake Thompson',
-    role: 'Product Manager',
-    bio: 'Former AWS Solutions Architect specializing in edge computing and IoT infrastructure.',
-    image: '/src/assets/team-jake.jpg',
-    linkedin: '#'
-  }
-];
+    name: 'Amir',
+    role: 'Embedded Systems Engineer',
+    bio: '',
+    image: '/src/assets/team-amir.jpg',
+    linkedin: '#',
+    twitter: '#'
+  },
+  {
+    id: '5',
+    name: 'Yessine',
+    role: 'Web3 Fullstack Engineer',
+    bio: '',
+    image: '/src/assets/team-yessine.jpg',
+    linkedin: '#',
+    twitter: '#'
+  }];
 
 export const faqs: FAQ[] = [
   {
@@ -104,7 +115,7 @@ export const faqs: FAQ[] = [
   {
     id: '3',
     question: 'What renewable energy sources are supported?',
-    answer: 'Orion validators support solar panels, wind turbines, and battery storage systems. The built-in energy management system automatically optimizes power usage and can operate entirely off-grid.',
+    answer: 'At this moment, Orion validators support solar panels and later we will expand to wind turbines, and battery storage systems. The built-in energy management system automatically optimizes power usage and can operate entirely off-grid.',
     category: 'Technical'
   },
   {
@@ -122,7 +133,7 @@ export const faqs: FAQ[] = [
   {
     id: '6',
     question: 'What blockchain networks are supported?',
-    answer: 'Currently supporting Ethereum 2.0, with Polygon and Avalanche coming Q4 2024. Our roadmap includes 10+ major networks by 2025.',
+    answer: 'Supporting Odyssey chain.',
     category: 'Technical'
   },
   {
@@ -160,6 +171,7 @@ export const orionValidators: OrionValidator[] = [
   }
 ];
 
+
 export const mockOrders: Order[] = [
   {
     id: 'ord-001',
@@ -169,15 +181,95 @@ export const mockOrders: Order[] = [
     currency: 'USDT',
     status: 'confirmed',
     createdAt: new Date('2024-01-15'),
-    txHash: '0xabcd1234...'
+    txHash: '0xabcd1234567890abcdef',
+    clientDetails: {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      phone: '+1-555-0123',
+      telegramHandle: '@johndoe_crypto',
+      shippingAddress: {
+        street: '123 Blockchain Ave',
+        city: 'San Francisco',
+        state: 'CA',
+        zipCode: '94102',
+        country: 'USA'
+      }
+    },
+    shipmentStatus: 'shipped',
+    trackingNumber: 'ORN-2024-001'
   },
   {
     id: 'ord-002',
-    userId: 'admin-1',
+    userId: 'user-2',
+    productName: 'Orion Validator V1',
+    amount: 1200,
+    currency: 'USDT',
+    status: 'confirmed',
+    createdAt: new Date('2024-01-16'),
+    txHash: '0xdef456789abc012345678',
+    clientDetails: {
+      name: 'Alice Chen',
+      email: 'alice.chen@example.com',
+      phone: '+1-555-0456',
+      telegramHandle: '@alice_validator',
+      shippingAddress: {
+        street: '456 Crypto Street',
+        city: 'Austin',
+        state: 'TX',
+        zipCode: '73301',
+        country: 'USA'
+      }
+    },
+    shipmentStatus: 'preparing',
+    trackingNumber: 'ORN-2024-002'
+  },
+  {
+    id: 'ord-003',
+    userId: 'user-3',
     productName: 'Orion Validator V1',
     amount: 1200,
     currency: 'USDT',
     status: 'pending',
-    createdAt: new Date('2024-01-16'),
+    createdAt: new Date('2024-01-17'),
+    clientDetails: {
+      name: 'Bob Martinez',
+      email: 'bob.martinez@example.com',
+      phone: '+1-555-0789',
+      telegramHandle: '@bob_orion',
+      shippingAddress: {
+        street: '789 Node Drive',
+        city: 'Miami',
+        state: 'FL',
+        zipCode: '33101',
+        country: 'USA'
+      }
+    },
+    shipmentStatus: 'order-received',
+    trackingNumber: null
+  },
+  {
+    id: 'ord-004',
+    userId: 'user-4',
+    productName: 'Orion Validator V1',
+    amount: 1200,
+    currency: 'USDT',
+    status: 'confirmed',
+    createdAt: new Date('2024-01-18'),
+    txHash: '0x789abc012def345678901',
+    clientDetails: {
+      name: 'Diana Kumar',
+      email: 'diana.kumar@example.com',
+      phone: '+44-20-7946-0958',
+      telegramHandle: '@diana_nodes',
+      shippingAddress: {
+        street: '12 Validation Lane',
+        city: 'London',
+        state: 'Greater London',
+        zipCode: 'SW1A 1AA',
+        country: 'UK'
+      }
+    },
+    shipmentStatus: 'delivered',
+    trackingNumber: 'ORN-2024-004'
   }
 ];

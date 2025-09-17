@@ -19,7 +19,7 @@ const Confirmation = () => {
 
   if (!orderData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="flex items-center justify-center">
         <Card className="w-full max-w-md text-center">
           <CardHeader>
             <CardTitle>Order Not Found</CardTitle>
@@ -41,20 +41,19 @@ const Confirmation = () => {
   estimatedDelivery.setDate(estimatedDelivery.getDate() + 14);
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Success Header */}
-        <div className="text-center space-y-6 mb-12">
-          <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto">
-            <CheckCircle className="w-10 h-10 text-success" />
-          </div>
-          <div>
-            <h1 className="text-3xl lg:text-4xl font-bold">Order Confirmed!</h1>
-            <p className="text-xl text-muted-foreground mt-2">
-              Thank you for your purchase. Your Orion validator is being prepared.
-            </p>
-          </div>
+    <div className="space-y-12">
+      {/* Success Header */}
+      <div className="text-center space-y-6">
+        <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto">
+          <CheckCircle className="w-10 h-10 text-success" />
         </div>
+        <div>
+          <h1 className="text-3xl lg:text-4xl font-bold">Order Confirmed!</h1>
+          <p className="text-xl text-muted-foreground mt-2">
+            Thank you for your purchase. Your Orion validator is being prepared.
+          </p>
+        </div>
+      </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Order Details */}
@@ -220,7 +219,6 @@ const Confirmation = () => {
           </Button>
         </div>
       </div>
-    </div>
   );
 };
 

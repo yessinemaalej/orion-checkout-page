@@ -17,6 +17,21 @@ export interface Order {
   status: 'pending' | 'confirmed' | 'failed';
   createdAt: Date;
   txHash?: string;
+  clientDetails?: {
+    name: string;
+    email: string;
+    phone: string;
+    telegramHandle: string;
+    shippingAddress: {
+      street: string;
+      city: string;
+      state: string;
+      zipCode: string;
+      country: string;
+    };
+  };
+  shipmentStatus?: 'order-received' | 'preparing' | 'shipped' | 'delivered';
+  trackingNumber?: string | null;
 }
 
 export interface OrionValidator {

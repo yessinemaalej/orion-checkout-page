@@ -27,7 +27,7 @@ const AdminPanel = () => {
 
   if (currentRole !== 'admin') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="flex items-center justify-center">
         <Alert className="max-w-md">
           <AlertTriangle className="h-4 w-4" />
           <AlertDescription>
@@ -44,19 +44,17 @@ const AdminPanel = () => {
   const activeValidators = 8;
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
-          {/* Header */}
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold flex items-center">
-              <Shield className="w-8 h-8 mr-3 text-primary" />
-              Admin Panel
-            </h1>
-            <p className="text-muted-foreground">
-              Manage users, orders, and validator inventory
-            </p>
-          </div>
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold flex items-center">
+          <Shield className="w-8 h-8 mr-3 text-primary" />
+          Admin Panel
+        </h1>
+        <p className="text-muted-foreground">
+          Manage users, orders, and validator inventory
+        </p>
+      </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -125,51 +123,101 @@ const AdminPanel = () => {
             <TabsContent value="orders" className="space-y-6">
               <Card className="bg-gradient-card border-border/50 shadow-card">
                 <CardHeader>
-                  <CardTitle>All Orders</CardTitle>
+                  <CardTitle>All Orders & Shipments</CardTitle>
                   <CardDescription>
-                    Manage and track all system orders
+                    Manage orders, client details, and shipment tracking
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {mockOrders.map((order) => (
-                      <div key={order.id} className="flex items-center justify-between p-4 bg-muted rounded-lg">
-                        <div className="space-y-1">
-                          <p className="font-medium">{order.productName}</p>
-                          <p className="text-sm text-muted-foreground">
-                            Order ID: {order.id} | User ID: {order.userId}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {order.createdAt.toLocaleDateString()}
-                          </p>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                          <div className="text-right space-y-1">
-                            <p className="font-medium">
-                              {order.amount} {order.currency}
-                            </p>
-                            <Badge 
-                              className={
-                                order.status === 'confirmed' 
-                                  ? 'bg-success/10 text-success border-success/20'
-                                  : order.status === 'pending'
-                                  ? 'bg-warning/10 text-warning border-warning/20'
-                                  : 'bg-destructive/10 text-destructive border-destructive/20'
-                              }
-                            >
-                              {order.status}
-                            </Badge>
+                      <Card key={order.id} className="p-6 bg-muted/50 border-border/50">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                          {/* Order Information */}
+                          <div className="space-y-3">
+                            <h3 className="font-semibold text-lg">Order Details</h3>
+                            <div className="space-y-2 text-sm">
+                              <p><span className="font-medium">Order ID:</span> {order.id}</p>
+                              <p><span className="font-medium">Product:</span> {order.productName}</p>
+                              <p><span className="font-medium">Amount:</span> {order.amount} {order.currency}</p>
+                              <p><span className="font-medium">Date:</span> {order.createdAt.toLocaleDateString()}</p>
+                              {order.txHash && (
+                                <p><span className="font-medium">Tx Hash:</span> 
+                                  <span className="font-mono text-xs ml-2">{order.txHash}</span>
+                                </p>
+                              )}
+                              <div className="flex space-x-2">
+                                <Badge 
+                                  className={
+                                    order.status === 'confirmed' 
+                                      ? 'bg-success/10 text-success border-success/20'
+                                      : order.status === 'pending'
+                                      ? 'bg-warning/10 text-warning border-warning/20'
+                                      : 'bg-destructive/10 text-destructive border-destructive/20'
+                                  }
+                                >
+                                  Payment: {order.status}
+                                </Badge>
+                                {order.shipmentStatus && (
+                                  <Badge 
+                                    className={
+                                      order.shipmentStatus === 'delivered'
+                                        ? 'bg-success/10 text-success border-success/20'
+                                        : order.shipmentStatus === 'shipped'
+                                        ? 'bg-info/10 text-info border-info/20'
+                                        : 'bg-warning/10 text-warning border-warning/20'
+                                    }
+                                  >
+                                    Ship: {order.shipmentStatus}
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex space-x-2">
-                            <Button size="sm" variant="outline">
-                              <Edit className="w-4 h-4" />
-                            </Button>
-                            <Button size="sm" variant="outline">
-                              <Trash2 className="w-4 h-4" />
-                            </Button>
+
+                          {/* Client Information */}
+                          <div className="space-y-3">
+                            <h3 className="font-semibold text-lg">Client Details</h3>
+                            {order.clientDetails ? (
+                              <div className="space-y-2 text-sm">
+                                <p><span className="font-medium">Name:</span> {order.clientDetails.name}</p>
+                                <p><span className="font-medium">Email:</span> {order.clientDetails.email}</p>
+                                <p><span className="font-medium">Phone:</span> {order.clientDetails.phone}</p>
+                                <p><span className="font-medium">Telegram:</span> {order.clientDetails.telegramHandle}</p>
+                                <div className="pt-2">
+                                  <p className="font-medium mb-1">Shipping Address:</p>
+                                  <div className="text-xs space-y-1 text-muted-foreground">
+                                    <p>{order.clientDetails.shippingAddress.street}</p>
+                                    <p>{order.clientDetails.shippingAddress.city}, {order.clientDetails.shippingAddress.state}</p>
+                                    <p>{order.clientDetails.shippingAddress.zipCode}, {order.clientDetails.shippingAddress.country}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            ) : (
+                              <p className="text-sm text-muted-foreground">No client details available</p>
+                            )}
+                          </div>
+
+                          {/* Shipment & Actions */}
+                          <div className="space-y-3">
+                            <h3 className="font-semibold text-lg">Shipment & Actions</h3>
+                            <div className="space-y-2 text-sm">
+                              {order.trackingNumber && (
+                                <p><span className="font-medium">Tracking:</span> {order.trackingNumber}</p>
+                              )}
+                            </div>
+                            <div className="space-y-2">
+                              <Button size="sm" variant="outline" className="w-full">
+                                <Edit className="w-4 h-4 mr-2" />
+                                Edit Order
+                              </Button>
+                              <Button size="sm" variant="outline" className="w-full">
+                                View Transaction
+                              </Button>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Card>
                     ))}
                   </div>
                 </CardContent>
@@ -318,10 +366,8 @@ const AdminPanel = () => {
                 </Card>
               </div>
             </TabsContent>
-          </Tabs>
-        </div>
+        </Tabs>
       </div>
-    </div>
   );
 };
 

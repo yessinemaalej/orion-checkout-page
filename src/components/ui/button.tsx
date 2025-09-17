@@ -9,17 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-slate-500 text-white hover:bg-blue-600 shadow-sm hover:shadow-md transition-all duration-200",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-sm hover:shadow-md transition-all duration-200",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border-2 border-slate-300 bg-background hover:bg-blue-600 hover:border-blue-600 text-foreground hover:text-white transition-all duration-200 shadow-sm hover:shadow-md",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        cosmic: "bg-gradient-cosmic text-primary-foreground shadow-glow hover:shadow-cosmic transform hover:scale-105 transition-glow",
-        success: "bg-success text-success-foreground hover:bg-success/90 shadow-md",
+          "bg-slate-200 text-slate-800 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md transition-all duration-200",
+        ghost: "hover:bg-blue-100 hover:text-blue-800 transition-all duration-200",
+        link: "text-slate-600 underline-offset-4 hover:underline hover:text-blue-600 transition-colors duration-200",
+        cosmic: "bg-gradient-cosmic text-primary-foreground shadow-glow hover:shadow-cosmic transform hover:scale-105 transition-all duration-300 font-semibold",
+        success: "bg-success text-success-foreground hover:bg-success/90 shadow-md hover:shadow-lg transition-all duration-200",
       },
       size: {
         default: "h-10 px-4 py-2",

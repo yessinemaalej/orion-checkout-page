@@ -30,20 +30,18 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
-          {/* Header */}
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold">
-              {currentRole === 'admin' ? 'Admin Dashboard' : 
-               currentRole === 'manufacturer' ? 'Manufacturer Portal' : 
-               'My Dashboard'}
-            </h1>
-            <p className="text-muted-foreground">
-              Welcome back, {currentUser?.name}
-            </p>
-          </div>
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold">
+          {currentRole === 'admin' ? 'Admin Dashboard' : 
+           currentRole === 'manufacturer' ? 'Manufacturer Portal' : 
+           'My Dashboard'}
+        </h1>
+        <p className="text-muted-foreground">
+          Welcome back, {currentUser?.name}
+        </p>
+      </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -200,11 +198,11 @@ const Dashboard = () => {
                     <div className="space-y-2">
                       <div className="flex justify-between">
                         <span>This Month:</span>
-                        <span className="font-medium">2.4 ETH</span>
+                        <span className="font-medium">0 DIONE</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Total Earned:</span>
-                        <span className="font-medium">28.7 ETH</span>
+                        <span className="font-medium">0 DIONE</span>
                       </div>
                       <div className="flex justify-between">
                         <span>USD Value:</span>
@@ -301,8 +299,6 @@ const Dashboard = () => {
             </TabsContent>
           </Tabs>
         </div>
-      </div>
-    </div>
   );
 };
 

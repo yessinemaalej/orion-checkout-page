@@ -4,15 +4,34 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Rocket, Wallet } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/hooks/use-toast';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { currentRole, switchRole, connectWallet, isWalletConnected } = useAuth();
+const { toast } = useToast();
 
+  const handleWalletConnect = async () => {
+    try {
+      await connectWallet();
+      toast({
+        title: "Wallet Connected",
+        description: "Successfully connected to MetaMask",
+        variant: "default"
+      });
+    } catch (error: any) {
+      toast({
+        title: "Connection Failed",
+        description: error.message || "Failed to connect wallet",
+        variant: "destructive"
+      });
+    }
+  };
   const navItems = [
     { name: 'Home', href: '/', roles: ['admin', 'user', 'manufacturer'] },
-    { name: 'Checkout', href: '/checkout', roles: ['admin', 'user'] },
+        { name: 'FAQ', href: '/#faq', roles: ['admin', 'user', 'manufacturer'] },
+
     { name: 'Dashboard', href: '/dashboard', roles: ['admin', 'user', 'manufacturer'] },
     { name: 'Admin Panel', href: '/admin', roles: ['admin'] }
   ];
@@ -30,11 +49,15 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="p-2 bg-gradient-cosmic rounded-lg">
-              <Rocket className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-cosmic bg-clip-text text-transparent">
-              Orion Checkout
-            </span>
+    <img
+      src="/Orion.png"
+      alt="Orion Logo"
+      className="w-10 h-10 object-contain"
+    />
+  </div>
+  <span className="text-xl font-bold text-foreground">
+    Orion Checkout
+  </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,22 +79,11 @@ const Navigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Role Selector */}
-            <select
-              value={currentRole}
-              onChange={(e) => switchRole(e.target.value as any)}
-              className="bg-card border border-border rounded-md px-3 py-1 text-sm"
-            >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-              <option value="manufacturer">Manufacturer</option>
-            </select>
-
             {/* Wallet Connect */}
             <Button 
               variant={isWalletConnected ? "success" : "cosmic"}
               size="sm"
-              onClick={connectWallet}
+              onClick={handleWalletConnect}
               disabled={isWalletConnected}
               className="flex items-center space-x-2"
             >
@@ -106,22 +118,9 @@ const Navigation = () => {
                 
                 <div className="pt-4 border-t border-border">
                   <div className="space-y-3">
-                    <div>
-                      <label className="text-sm font-medium">Role</label>
-                      <select
-                        value={currentRole}
-                        onChange={(e) => switchRole(e.target.value as any)}
-                        className="w-full mt-1 bg-card border border-border rounded-md px-3 py-2 text-sm"
-                      >
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                        <option value="manufacturer">Manufacturer</option>
-                      </select>
-                    </div>
-                    
                     <Button 
                       variant={isWalletConnected ? "success" : "cosmic"}
-                      onClick={connectWallet}
+                      onClick={handleWalletConnect}
                       disabled={isWalletConnected}
                       className="w-full flex items-center space-x-2"
                     >
