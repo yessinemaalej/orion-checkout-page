@@ -18,7 +18,7 @@ import {
 import { roadmapItems, teamMembers, faqs } from '@/data/mockData';
 import heroValidatorImage from '@/assets/or.png';
 import orionImage from '@/assets/Orion.png';
-import oliImage from '@/assets/team-Oli.webp';
+import oliImage from '@/assets/team-oli.webp';
 import azeemImage from '@/assets/team-azeem.webp';
 import stefanImage from '@/assets/team-stefan.webp';
 import jakeImage from '@/assets/team-jake.jpg';
